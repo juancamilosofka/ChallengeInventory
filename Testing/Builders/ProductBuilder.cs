@@ -11,18 +11,18 @@ namespace Testing.Builders;
     {
         public static PaginationProduct BuildPaginationProduct() => new PaginationProduct{
 
-        Pages = 10 ,
-        CurrentPage = 1,
-        PageSize = 1,
-        products  = {
-            new Product{
-                IdProduct = 1,
-                Name = "KartofelSaft",
-                inInventory = 200 ,
-                enabled = true ,
-                min = 5 ,
-                max = 20
-        },
+    Pages = 10 ,
+    CurrentPage = 1,
+    PageSize = 1,
+    products  = {
+        new Product{
+            IdProduct = 1,
+            Name = "KartofelSaft",
+            inInventory = 200 ,
+            enabled = true ,
+            min = 5 ,
+            max = 20
+    },
             
       new Product{
       IdProduct = 92,

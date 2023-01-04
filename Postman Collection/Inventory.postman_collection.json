@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "6641ed96-a9a0-42eb-a9be-4bf8593b42d1",
+		"name": "Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get the Products By Page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Product/Get/10/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Product",
+								"Get",
+								"10",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Product/Get/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Product",
+								"Get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Product/Delete/106",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Product",
+								"Delete",
+								"106"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n  \"name\": \"Cafe\",\r\n  \"inInventory\": 100,\r\n  \"enabled\": true,\r\n  \"min\": 1,\r\n  \"max\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7213/api/Product/Post",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Product",
+								"Post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buy",
+			"item": [
+				{
+					"name": "Add a Buy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n  \"date\": \"2023-01-04T21:26:39.454Z\",\r\n  \"idType\": \"CC\",\r\n  \"id\": \"123456\",\r\n  \"clientName\": \"Carlamardo\",\r\n  \"productList\": [\r\n    {\r\n\r\n      \"idProduct\": 2,\r\n      \"quantity\": 10\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7213/api/Buy",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Buy By User Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7213/api/Buy/Buyer/CC/123456",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7213",
+							"path": [
+								"api",
+								"Buy",
+								"Buyer",
+								"CC",
+								"123456"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
