@@ -19,9 +19,9 @@ public class BuyService  : IBuyService
              return null;
         }
 
-     public async Task<List<Buy>> GetBuyByBuyerId(string id){
+     public async Task<List<Buy>> GetBuyByBuyerId(string type, string id){
              
-          var find = _context.buy.Where(b => b.Id == id).Count();
+          var find = _context.buy.Where(b => b.Id == id && b.IdType == type).Count();
           if (find == 0)                          
         {
             return null;
@@ -37,7 +37,8 @@ public class BuyService  : IBuyService
 
           foreach(ProductList producToBuy in buy.ProductList){
 
-          var find = _context.product.Where(p => p.enabled == true && p.IdProduct == producToBuy.IdProduct).Count();
+          var find = _context.product.Where(p => p.enabled == true 
+          && p.IdProduct == producToBuy.IdProduct).Count();
           if (find == 0)                          
           {
             return null;
@@ -46,7 +47,7 @@ public class BuyService  : IBuyService
                                    .Where(p => p.enabled == true && p.IdProduct == producToBuy.IdProduct)
                                    .FirstAsync();
 
-          if(producToBuy.Quantity > product.max || producToBuy.Quantity < product.min){
+          if(producToBuy.Quantity > product.max || producToBuy.Quantity < product.min || producToBuy.Quantity > product.inInventory){
                 return null;
           }
           }
@@ -56,7 +57,7 @@ public class BuyService  : IBuyService
           var find = await _context.product.Where(p => p.enabled == true && p.IdProduct == p.IdProduct).FirstAsync();
 
           find.inInventory = find.inInventory - p.Quantity;
-         
+
           await _context.SaveChangesAsync();
 
           }

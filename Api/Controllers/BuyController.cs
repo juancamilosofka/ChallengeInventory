@@ -29,10 +29,10 @@ namespace Api.Controllers
          return Ok(newBuy);
         }
 
-                [HttpGet("Buyer/{id}")]
-        public async Task<IActionResult> GetBuyByBuyerId(string id){
+                [HttpGet("Buyer/{type}/{id}")]
+        public async Task<IActionResult> GetBuyByBuyerId(string type, string id){
             
-            var product = await _service.GetBuyByBuyerId(id);
+            var product = await _service.GetBuyByBuyerId(type, id);
 
             if(product == null){
                 return NotFound("Buys not found");
