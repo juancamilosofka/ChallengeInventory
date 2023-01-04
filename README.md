@@ -11,5 +11,4 @@ please run the Api using the console on the api folder  with console command: `d
 ### Test
 
 The controller test can be run from the Testing folder with console command: `dotnet Test`
-
-![](https://pandao.github.io/editor.md/examples/images/8.jpg)
+![](https://github.com/juancamilosofka/ChallengeInventory/blob/main/Testing.PNG)
