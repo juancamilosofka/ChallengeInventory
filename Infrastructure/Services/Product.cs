@@ -65,7 +65,6 @@ public class ProductService : IProductService
         }catch{
             return null;
         }
-
     }
 
     public async Task<Product> UpdateProduct(Product updatedproduct)

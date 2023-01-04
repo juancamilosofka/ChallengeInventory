@@ -28,6 +28,7 @@ public class BuyService  : IBuyService
         }
         var buys = await _context.buy
                                         .Where(b => b.Id == id)
+                                        .Include(b => b.ProductList)
                                         .ToListAsync();
         return buys;
         }
