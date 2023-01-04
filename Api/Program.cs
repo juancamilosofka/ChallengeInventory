@@ -41,5 +41,6 @@ app.Run();
 void ConfigureServices(IServiceCollection services)
 {
     services.AddTransient<IProductService, ProductService>();
+    services.AddTransient<IBuyService, BuyService>();
    // services.AddHttpClient<IUsersService, UsersService>();
 }

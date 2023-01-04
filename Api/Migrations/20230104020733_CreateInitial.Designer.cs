@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20230103145118_create")]
-    partial class create
+    [Migration("20230104020733_CreateInitial")]
+    partial class CreateInitial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,6 +67,9 @@ namespace Api.Migrations
 
                     b.Property<bool>("enabled")
                         .HasColumnType("bit");
+
+                    b.Property<int>("inInventory")
+                        .HasColumnType("int");
 
                     b.Property<int>("max")
                         .HasColumnType("int");

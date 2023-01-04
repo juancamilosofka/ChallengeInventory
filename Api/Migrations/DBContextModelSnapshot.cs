@@ -65,6 +65,9 @@ namespace Api.Migrations
                     b.Property<bool>("enabled")
                         .HasColumnType("bit");
 
+                    b.Property<int>("inInventory")
+                        .HasColumnType("int");
+
                     b.Property<int>("max")
                         .HasColumnType("int");
 
