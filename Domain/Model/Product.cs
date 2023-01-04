@@ -12,6 +12,7 @@ namespace Domain.Model
         [Key]
         public int IdProduct { get; set; }
         public string Name { get; set; }
+        public int inInventory { get; set; }
         public bool enabled { get; set; }
         public int min { get; set; }
         public int max { get; set; }
