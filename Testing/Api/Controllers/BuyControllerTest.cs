@@ -45,7 +45,7 @@ public class BuyControllerTest
             Times.Once());
             result.Should().BeOfType<OkObjectResult>();
             var objectResult = (OkObjectResult)result;
-            objectResult.Value.Should().BeOfType<PaginationProduct>();
+            objectResult.Value.Should().BeOfType<List<Buy>>();
         }
         [Fact]
         public async Task Get_NotFound_Returns404()
@@ -59,17 +59,14 @@ public class BuyControllerTest
             var sut = new BuyController(mockBuyService.Object);
 
             //Act
-            var result = (NoContentResult)await sut.GetBuyByBuyerId(It.IsAny<string>(), It.IsAny<string>());
+            var result = (NotFoundObjectResult)await sut.GetBuyByBuyerId(It.IsAny<string>(), It.IsAny<string>());
 
             //Assert
 
-            result.Should().BeOfType<NoContentResult>();
-            var objectResult = (NoContentResult)result;
+            result.Should().BeOfType<NotFoundObjectResult>();
+            var objectResult = (NotFoundObjectResult)result;
 
         }
-
-
-      
 
         [Fact]
         public async Task PostBuy_OnSuccess_RetuensStatusCode200()
@@ -92,7 +89,7 @@ public class BuyControllerTest
             Times.Once());
             result.Should().BeOfType<OkObjectResult>();
             var objectResult = (OkObjectResult)result;
-            objectResult.Value.Should().BeOfType<Product>();
+            objectResult.Value.Should().BeOfType<Buy>();
         }
                 [Fact]
         public async Task PostBuy_Notadded_Returns404()
@@ -106,13 +103,13 @@ public class BuyControllerTest
             var sut = new BuyController(mockBuyService.Object);
 
             //Act
-            var result = (NotFoundObjectResult)await sut.AddBuy(buy);
+            var result = (BadRequestObjectResult)await sut.AddBuy(buy);
 
             //Assert
 
-            result.Should().BeOfType<NotFoundObjectResult>();
-            var objectResult = (NotFoundObjectResult)result;
-            objectResult.StatusCode.Should().Be(404);
+            result.Should().BeOfType<BadRequestObjectResult>();
+            var objectResult = (BadRequestObjectResult)result;
+            objectResult.StatusCode.Should().Be(400);
         }
 
 }
