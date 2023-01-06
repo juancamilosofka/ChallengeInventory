@@ -51,7 +51,7 @@ namespace Api.Controllers
                 return NotFound("Product not found");
             }
 
-         return Ok($"Product {product.IdProduct} deleted");
+         return Ok();
         }
 
         [HttpPost("Post")]

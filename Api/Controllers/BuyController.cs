@@ -6,6 +6,7 @@ using Infrastructure.Services;
 
 namespace Api.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class BuyController : ControllerBase

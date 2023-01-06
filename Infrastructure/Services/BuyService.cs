@@ -20,7 +20,7 @@ public class BuyService  : IBuyService
         }
 
      public async Task<List<Buy>> GetBuyByBuyerId(string type, string id){
-             
+
           var find = _context.buy.Where(b => b.Id == id && b.IdType == type).Count();
           if (find == 0)                          
         {
